@@ -5,7 +5,7 @@ import {
   CollapsibleTrigger,
 } from "../ui/collapsible";
 import { Button } from "../ui/button";
-import { ChevronsDown, Plus, X } from "lucide-react";
+import { X } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import { Checkbox } from "../ui/checkbox";
 import {
