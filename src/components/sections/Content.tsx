@@ -1,32 +1,16 @@
-import { ScrollArea } from "@/components/ui/scroll-area";
-import BucketCard from "../elements/BucketCard";
+import ItemList from "../elements/ItemList";
+import { useStore } from "@/store";
 
 type ContentProps = {
   className?: string;
 };
 
 const Content = (props: ContentProps) => {
+  const items = useStore((state) => state.items);
+  console.log(items);
   return (
     <div className={props.className ? props.className : undefined}>
-      <ScrollArea className="w-full rounded-md border p-4 md:h-[600px]">
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-        <BucketCard />
-      </ScrollArea>
+      <ItemList />
     </div>
   );
 };

@@ -1,10 +1,14 @@
-import React from "react";
+import { useStore } from "@/store";
 
 const BucketStatus = () => {
+  const items = useStore((state) => state.items);
+
+  const completedItems = items.filter((item) => item.completed).length;
+  const totalItems = items.length;
   return (
     <p>
-      Completed <span className="text-green-700">3</span>/
-      <span className="text-red-700">7</span>
+      Completed <span className="text-green-700">{completedItems}</span>/
+      <span className="text-red-700">{totalItems}</span>
     </p>
   );
 };

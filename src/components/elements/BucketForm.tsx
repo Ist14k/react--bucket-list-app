@@ -26,7 +26,10 @@ const FormSchema = z.object({
   }),
 });
 
+import { ItemType } from "@/store/item-slice";
+
 const BucketForm = () => {
+  const addItem = useStore((state) => state.addItem);
   const { isOpen, closeDialog } = useStore();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -38,6 +41,7 @@ const BucketForm = () => {
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
     toast({
+      variant: "default",
       title: "You submitted the following values:",
       description: (
         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
@@ -45,8 +49,17 @@ const BucketForm = () => {
         </pre>
       ),
     });
+    const item = {
+      id: Math.random().toString(36).substr(2, 9),
+      title: data.title,
+      description: data.description,
+      completed: false,
+      createdAt: new Date(),
+    } as ItemType;
 
+    addItem(item);
     closeDialog();
+    form.reset();
   };
 
   return (

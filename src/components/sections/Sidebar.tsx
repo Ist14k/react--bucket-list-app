@@ -20,14 +20,18 @@ const Sidebar = (props: SidebarProps) => {
         <div>
           <p className="pb-2">More Actions</p>
           <div className="flex flex-col gap-1">
-            <Button className="bg-green-500 hover:bg-green-500/90">
+            <Button disabled className="bg-green-500 hover:bg-green-500/90">
               Mark all as complete
             </Button>
-            <Button className="bg-blue-500 hover:bg-blue-500/90">
+            <Button disabled className="bg-blue-500 hover:bg-blue-500/90">
               Mark all as incomplete
             </Button>
-            <Button variant="secondary">Reset to initial</Button>
-            <Button variant="destructive">Clear Bucket</Button>
+            <Button disabled variant="secondary">
+              Reset to initial
+            </Button>
+            <Button disabled variant="destructive">
+              Clear Bucket
+            </Button>
           </div>
         </div>
       </main>
